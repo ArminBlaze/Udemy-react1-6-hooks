@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ClassComponent from './ClassComponent';
-import HookComponent from './HookComponent';
+import UseState from './UseState';
 
  
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div>
         <ClassComponent/>
-        <HookComponent/>
+        <UseState/>
       </div>
     )
   }

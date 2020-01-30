@@ -18,6 +18,7 @@ class ClassComponent extends Component {
     const {color} = this.state;
     return (
       <div className='Component' style={{backgroundColor: color}}>
+        <h3>Class Component</h3>
         <button onClick={this.setDark}>Dark</button>
         <button onClick={this.setLight}>Light</button>
       </div>
