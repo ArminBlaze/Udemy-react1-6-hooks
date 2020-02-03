@@ -8,9 +8,28 @@ const UseState = () => {
   const setDark = () => setColor('black');
   const setLight = () => setColor('white');
 
-  const smallerFont = () => setfontSize(14);
+  const smallerFont = () => setfontSize((s) => s - 7);
   const resetFont = () => setfontSize(14);
   const biggerFont = () => setfontSize((s) => s + 7);
+
+  const [person, setPerson] = useState({
+		name: 'Vasya',
+		surname: 'Pupkin'
+  });
+  
+  const changeName = (name) => setPerson((person) => {
+    return {
+      ...person,
+      name
+    }
+  })
+
+  const changeSurname = (surname) => setPerson((person) => {
+    return {
+      ...person,
+      surname
+    }
+  })
   
   return(
     <div className='Component' style={{
@@ -24,6 +43,11 @@ const UseState = () => {
 
       <button onClick={resetFont}>resetFont</button>
       <button onClick={biggerFont}>biggerFont</button>
+
+      <br/>
+      <p>Name: {person.name}, Surname: {person.surname}</p>
+      <button onClick={() => changeName('Masha')}>changeName</button>
+      <button onClick={() => changeSurname('Popkina')}>changeSurname</button>
 
     </div>
   )
