@@ -8,7 +8,7 @@ const UseState = () => {
   const setDark = () => setColor('black');
   const setLight = () => setColor('white');
 
-  const smallerFont = () => setfontSize((s) => s - 7);
+  // const smallerFont = () => setfontSize((s) => s - 7);
   const resetFont = () => setfontSize(14);
   const biggerFont = () => setfontSize((s) => s + 7);
 
@@ -34,7 +34,7 @@ const UseState = () => {
   return(
     <div className='Component' style={{
       backgroundColor: color,
-      'font-size': fontSize,
+      fontSize: fontSize,
       }}>
       <h3>useState</h3>
       <button onClick={() => setColor('black')}>XZ</button>
