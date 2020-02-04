@@ -1,5 +1,5 @@
 import React, { useState  } from 'react';
-import './Component.css';
+import 'Component.css';
  
 const UseState = () => {
   const [color, setColor] = useState('white'); 
@@ -36,7 +36,7 @@ const UseState = () => {
       backgroundColor: color,
       fontSize: fontSize,
       }}>
-      <h3>useState</h3>
+      <h3>hook useState</h3>
       <button onClick={() => setColor('black')}>XZ</button>
       <button onClick={setDark}>Dark</button>
       <button onClick={setLight}>Light</button>

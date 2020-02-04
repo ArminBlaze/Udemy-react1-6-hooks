@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ClassComponent from './ClassComponent';
-import UseState from 'UseState';
+import UseState from 'UseState/index.js';
 import UseContext from 'UseContext';
+import UseEffect from 'UseEffect/index.js';
 import {Provider} from 'context/myContext';
 
  
@@ -10,9 +10,9 @@ class App extends Component {
     return (
       <Provider value={'Peka!'}>
         <div>
-          <ClassComponent/>
-          <UseState/>
+          <UseEffect/>
           <UseContext/>
+          <UseState/>
         </div>
       </Provider>
     )
