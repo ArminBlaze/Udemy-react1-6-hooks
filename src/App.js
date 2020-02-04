@@ -3,7 +3,6 @@ import ClassComponent from './ClassComponent';
 import UseState from 'UseState';
 import UseContext from 'UseContext';
 import {Provider} from 'context/myContext';
-import myContext from 'context/myContext';
 
  
 class App extends Component {
