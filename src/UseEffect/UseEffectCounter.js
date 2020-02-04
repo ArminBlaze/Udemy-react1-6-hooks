@@ -3,11 +3,11 @@ import 'Component.css';
  
 const UseEffect = ({value, random}) => {
   useEffect( () => {
-    console.log('useEffect()');
+    console.log('useEffect');
 
     return () => console.log('Clear useEffect');
   },
-  [value])
+  [])
 
 
   return(

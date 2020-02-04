@@ -1,5 +1,6 @@
 import ClassCounter from './ClassCounter';
 import UseEffectCounter from './UseEffectCounter.js';
+import UseEffectNotification from './UseEffectNotification';
 import React, { useState  } from 'react';
 
 export default () => {
@@ -27,6 +28,8 @@ export default () => {
 
           <ClassCounter value={value} random={random}/>
           <UseEffectCounter value={value} random={random}/>
+          <UseEffectNotification />
+          
         </div>
       )
     } else {
