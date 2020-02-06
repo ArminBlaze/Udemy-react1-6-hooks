@@ -1,6 +1,7 @@
 import ClassCounter from './ClassCounter';
 import UseEffectCounter from './UseEffectCounter.js';
 import UseEffectNotification from './UseEffectNotification';
+import PlanetInfo from './PlanetInfo';
 import React, { useState  } from 'react';
 
 export default () => {
@@ -26,6 +27,7 @@ export default () => {
           <button onClick={ () => setRandom(Math.random()) }>Rnd</button>
           <button onClick={ () => setVisible(false) }>hide</button>
 
+          <PlanetInfo id={value} />
           <ClassCounter value={value} random={random}/>
           <UseEffectCounter value={value} random={random}/>
           <UseEffectNotification />
