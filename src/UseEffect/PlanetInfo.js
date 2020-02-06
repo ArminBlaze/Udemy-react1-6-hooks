@@ -5,28 +5,16 @@ const PlanetInfo = ({id}) => {
 
   let [planet, setPlanet] = useState('');
 
-
-
   useEffect( () => {
-    console.log('useEffect');
+    let cancelled = false;
 
-    const callback = {
-      flag: true,
-      
-      setData(data) {
-        if(this.flag) setPlanet(data)
-      },
-      cancel() {
-        this.flag = false
-      }
-    }
-
-    if(id) getData(id, callback);
+    if(id) fetch(`https://swapi.co/api/planets/${id}`)
+            .then(res => res.json())
+            .then(data => !cancelled && setPlanet(data.name)) 
     
-    return () => callback.cancel();
+    return () => cancelled = true;
   },
   [id])
-
 
 
   return(
@@ -35,12 +23,6 @@ const PlanetInfo = ({id}) => {
       {planet}
     </div>
   )
-
-  function getData(id, callback) {
-    fetch(`https://swapi.co/api/planets/${id}`)
-		  .then(res => res.json())
-		  .then(data => callback.setData(data.name))
-  }
 }
  
 export default PlanetInfo;
