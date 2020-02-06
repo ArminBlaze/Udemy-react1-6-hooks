@@ -1,32 +1,46 @@
-import React, { useEffect, useState  } from 'react';
+import React, { useEffect, useState, useCallback  } from 'react';
 import 'Component.css';
 
-const usePlanetInfo = (id) => {
-  let [name, setPlanet] = useState('');
+const getPlanet = (id) => {
+  return fetch(`https://swapi.co/api/planets/${id}`)
+          .then(res => res.json())
+          .then(data => data) 
+} 
+
+const useRequest = (request) => {
+  let [data, setData] = useState('');
 
   useEffect( () => {
     let cancelled = false;
 
-    if(id) fetch(`https://swapi.co/api/planets/${id}`)
-            .then(res => res.json())
-            .then(data => !cancelled && setPlanet(data.name)) 
+    request()
+      .then(data => !cancelled && setData(data))
     
     return () => cancelled = true;
   },
-  [id])
+  [request])
 
-  return name;
+  return data;
+} 
+
+const usePlanetInfo = (id) => {
+  debugger;
+  const request = () => getPlanet(id);
+
+  // const callback = useCallback(request, [id]);
+
+  return useRequest(request);
 }
  
 const PlanetInfo = ({id}) => {
 
-  const name = usePlanetInfo(id);
+  const data = usePlanetInfo(id);
 
 
   return(
     <div className='Component'>
       <h3>PlanetInfo</h3>
-      {name}
+      {data.name}
     </div>
   )
 }
