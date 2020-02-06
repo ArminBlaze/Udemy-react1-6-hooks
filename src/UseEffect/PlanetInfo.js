@@ -1,9 +1,8 @@
 import React, { useEffect, useState  } from 'react';
 import 'Component.css';
- 
-const PlanetInfo = ({id}) => {
 
-  let [planet, setPlanet] = useState('');
+const usePlanetInfo = (id) => {
+  let [name, setPlanet] = useState('');
 
   useEffect( () => {
     let cancelled = false;
@@ -16,11 +15,18 @@ const PlanetInfo = ({id}) => {
   },
   [id])
 
+  return name;
+}
+ 
+const PlanetInfo = ({id}) => {
+
+  const name = usePlanetInfo(id);
+
 
   return(
     <div className='Component'>
       <h3>PlanetInfo</h3>
-      {planet}
+      {name}
     </div>
   )
 }
