@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useCallback, useMemo  } from 'react';
 import 'Component.css';
 
-const getPlanet = (id) => {
+const getPlanet = async (id) => {
   console.log('getPlanet', id);
   
-  return fetch(`https://swapi.co/api/planets/${id}`)
+  return await fetch(`https://swapi.co/api/planets/${id}`)
           .then(res => res.json())
           .then(data => data) 
 } 
