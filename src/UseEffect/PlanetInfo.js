@@ -9,13 +9,13 @@ const getPlanet = (id) => {
           .then(data => data) 
 } 
 
-const useRequest = (request, flag) => {
-  const initialState = useMemo( () => ({
-		data: null,
-		loading: false,
-		error: null,
-	}), [] )
+const initialState = {
+  data: null,
+  loading: false,
+  error: null,
+}
 
+const useRequest = (request, flag) => {
   let [data, setData] = useState(initialState);
 
   useEffect( () => {
@@ -39,7 +39,7 @@ const useRequest = (request, flag) => {
     
     return () => cancelled = true;
   },
-  [request, flag, initialState])
+  [request, flag])
 
   return data;
 } 
@@ -64,13 +64,13 @@ const PlanetInfo = ({id}) => {
   return(
     <div className='Component'>
       <h3>PlanetInfo</h3>
-      {getData(planetInfo)}
+      {renderData(planetInfo)}
     </div>
   )
 
 }
 
-function getData({data, loading, error}) {
+function renderData({data, loading, error}) {
   if(error) return <div>Что-то пошло не так</div>
   if(loading) return <div>Загрузка...</div>
   return data && data.name
